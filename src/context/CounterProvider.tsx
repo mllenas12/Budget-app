@@ -32,7 +32,15 @@ const CounterProvider = ({ children }: CounterProviderProps) => {
 
   return (
     <CounterContext.Provider
-      value={{ dataOptions, setDataOptions, total, counterLangs, counterPages }}
+      value={{
+        dataOptions,
+        setDataOptions,
+        total,
+        counterLangs,
+        counterPages,
+        setCounterPages,
+        setCounterLangs,
+      }}
     >
       {children}
     </CounterContext.Provider>
