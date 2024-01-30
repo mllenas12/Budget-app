@@ -1,0 +1,24 @@
+[
+    {
+    "id": 1,
+    "title": "Seo",
+    "description": "Programació d'una web responsive completa",
+    "price": 300,
+    "isAdded": false
+    },
+    {
+    "id": 2,
+    "title": "Ads",
+    "description": "Programació d'una web responsive completa",
+    "price": 400,
+    "isAdded": false
+     },
+    {
+    "id": 3,
+    "title": "Web",
+    "description": "Programació d'una web responsive completa",
+    "price": 500,
+    "isAdded": false,
+    "customize": {"numOfPages": 0, "numOfLangs": 0}
+    }
+]
