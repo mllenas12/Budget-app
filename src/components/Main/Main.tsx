@@ -1,5 +1,5 @@
 import React from "react";
-import Options from "./Options";
+import Options from "./Options/Options";
 import TotalPrice from "./TotalPrice";
 import { nanoid } from "nanoid";
 import { CounterContext } from "../../context/CounterProvider";

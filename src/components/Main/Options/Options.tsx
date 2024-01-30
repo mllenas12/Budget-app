@@ -1,7 +1,7 @@
 import React from "react";
-import { CounterContext } from "../../context/CounterProvider";
-import { optionType, OptionsProps } from "../../types/types";
-
+import { CounterContext } from "../../../context/CounterProvider";
+import { optionType, OptionsProps } from "../../../types/types";
+import WebCustomizer from "./WebCustomizer";
 const Options: React.FC<OptionsProps> = ({ option }) => {
   const { setDataOptions } = React.useContext(CounterContext);
 
@@ -16,7 +16,13 @@ const Options: React.FC<OptionsProps> = ({ option }) => {
   };
 
   return (
-    <div className="rounded-xl shadow-xl flex flex-col md:flex-row w-3/4 md:w-3/5 mx-auto mt-10 p-5">
+    <div
+      className={`rounded-xl shadow-xl w-3/4 md:w-3/5 mx-auto mt-10 p-5 ${
+        option.isAdded && option.title == "Web"
+          ? "border-solid border-2 border-emerald-600"
+          : "border-solid border-2 border-gray-50"
+      }`}
+    >
       <div className="flex flex-col md:flex-row">
         <div className="w-full md:w-1/2">
           <h1 className="font-bold md:text-2xl lg:text-3xl text-lg">
@@ -26,7 +32,6 @@ const Options: React.FC<OptionsProps> = ({ option }) => {
             {option.description}
           </p>
         </div>
-
         <div className="flex ml-auto md:ml-0  md:w-1/2 md:justify-between mt-2">
           <h2 className="md:text-3xl text-xl font-bold my-auto px-4">{`${option.price}€`}</h2>
           <div className="my-auto">
@@ -46,6 +51,11 @@ const Options: React.FC<OptionsProps> = ({ option }) => {
           </div>
         </div>
       </div>
+      {option.title == "Web" && option.isAdded && (
+        <div>
+          <WebCustomizer />
+        </div>
+      )}
     </div>
   );
 };
