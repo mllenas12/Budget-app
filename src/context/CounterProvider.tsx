@@ -9,7 +9,6 @@ const CounterProvider = ({ children }: CounterProviderProps) => {
     React.useState<optionType[]>(dataCheckboxes);
 
   const [total, setTotal] = React.useState<number>();
-
   const [counterPages, setCounterPages] = React.useState<number>(0);
   const [counterLangs, setCounterLangs] = React.useState<number>(0);
 

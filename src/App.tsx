@@ -1,19 +1,16 @@
-import React from "react";
 import "./assets/index.css";
-import Header from "./components/Header/Header";
-import Banner from "./components/Banner/Banner";
-import Main from "./components/Main/Main";
-import CounterProvider from "./context/CounterProvider";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import BudgetPage from "./pages/BudgetPage";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <div className="font-montserrat">
-      <CounterProvider>
-        <Header />
-        <Banner />
-        <Main />
-      </CounterProvider>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/BudgetPage" element={<BudgetPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
