@@ -3,14 +3,16 @@ import Header from "../components/Header/Header";
 import Banner from "../components/Banner/Banner";
 import Main from "../components/Main/Main";
 import CounterProvider from "../context/CounterProvider";
-
+import BudgetProvider from "../context/BudgetProvider";
 const BudgetPage = () => {
   return (
     <div className="font-montserrat">
       <CounterProvider>
-        <Header />
-        <Banner />
-        <Main />
+        <BudgetProvider>
+          <Header />
+          <Banner />
+          <Main />
+        </BudgetProvider>
       </CounterProvider>
     </div>
   );

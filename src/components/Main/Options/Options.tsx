@@ -1,6 +1,6 @@
 import React from "react";
 import { CounterContext } from "../../../context/CounterProvider";
-import { optionType, OptionsProps } from "../../../types/types";
+import { optionType, OptionsProps } from "../../../types/counterTypes";
 import WebCustomizer from "./WebCustomizer";
 const Options: React.FC<OptionsProps> = ({ option }) => {
   const { setDataOptions } = React.useContext(CounterContext);

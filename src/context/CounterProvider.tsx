@@ -1,6 +1,6 @@
 import React, { createContext } from "react";
 import dataCheckboxes from "../data/dataCheckboxes.json";
-import { optionType, CounterProviderProps } from "../types/types";
+import { optionType, CounterProviderProps } from "../types/counterTypes";
 
 export const CounterContext = createContext<any>("");
 
