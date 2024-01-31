@@ -14,7 +14,7 @@ const BudgetRequest = () => {
         onSubmit={handleForm}
         className="flex flex-col lg:flex-row gap-2 lg:justify-between"
       >
-        <div className="py-2 flex flex-col lg:flex-row justify-center lg:justify-start gap-x-2">
+        <div className="py-2 flex flex-col lg:flex-row justify-center lg:justify-start gap-x-2 pl-1">
           <input
             type="text"
             placeholder="Nom"

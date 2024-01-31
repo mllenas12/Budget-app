@@ -17,7 +17,7 @@ const Options: React.FC<OptionsProps> = ({ option }) => {
 
   return (
     <div
-      className={`rounded-xl shadow-xl w-3/4 md:w-3/5 mx-auto mt-10 p-5 ${
+      className={`my-6 md:my-8 rounded-xl shadow-lg w-3/4 md:w-3/5 mx-auto p-5 ${
         option.isAdded && option.title == "Web"
           ? "border-solid border-2 border-emerald-600"
           : "border-solid border-2 border-gray-50"

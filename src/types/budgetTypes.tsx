@@ -24,3 +24,7 @@ export type ServiceProps = {
 export type ArrowProps = {
   isOrdered: boolean;
 };
+
+export type SearchBarProps = {
+  setQuery: (event: string) => void;
+};
