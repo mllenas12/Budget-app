@@ -19,6 +19,7 @@ const BudgetProvider = ({ children }: BudgetProviderProps) => {
     email: "",
     total: 0,
     services: [],
+    createdAt: Date.now(),
   });
 
   const [arrayOfBudgets, setArrayOfBudgets] = React.useState<budgetType[]>([]);
@@ -31,6 +32,7 @@ const BudgetProvider = ({ children }: BudgetProviderProps) => {
       email: "",
       total: 0,
       services: [],
+      createdAt: Date.now(),
     });
     setDataOptions(dataCheckboxes);
   };
@@ -74,6 +76,7 @@ const BudgetProvider = ({ children }: BudgetProviderProps) => {
       value={{
         budget,
         arrayOfBudgets,
+        setArrayOfBudgets,
         handleForm,
         handleInputChange,
         services,

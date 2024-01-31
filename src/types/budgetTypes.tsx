@@ -8,6 +8,7 @@ export interface budgetType {
   email: string;
   total: number;
   services: servicesType;
+  createdAt: number;
 }
 
 export type servicesType = string[];
@@ -18,4 +19,8 @@ export type BudgetCompletedProps = {
 
 export type ServiceProps = {
   servicesProp: string[];
+};
+
+export type ArrowProps = {
+  isOrdered: boolean;
 };
