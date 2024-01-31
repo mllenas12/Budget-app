@@ -22,7 +22,7 @@ const BudgetRequest = () => {
             name="name"
             value={budget.name}
             required
-            className="border-solid border-2 rounded-md my-2 placeholder:pl-2 placeholder:text-sm lg:w-1/3"
+            className="border-solid border-2 required:border-gray-200 rounded-md my-2 placeholder:pl-2 placeholder:text-sm lg:w-1/3"
           />
           <input
             type="text"
@@ -31,7 +31,7 @@ const BudgetRequest = () => {
             value={budget.phone}
             name="phone"
             required
-            className="border-solid border-2 rounded-md my-2 placeholder:pl-2 placeholder:text-sm lg:w-1/3"
+            className="border-solid border-2 required:border-gray-200 rounded-md my-2 placeholder:pl-2 placeholder:text-sm lg:w-1/3"
           />
           <input
             type="text"
@@ -40,7 +40,7 @@ const BudgetRequest = () => {
             value={budget.email}
             name="email"
             required
-            className="border-solid border-2 rounded-md my-2 placeholder:pl-2 placeholder:text-sm lg:w-1/3"
+            className="border-solid border-2 required:border-gray-200 rounded-md my-2 placeholder:pl-2 placeholder:text-sm lg:w-1/3"
           />
         </div>
         <button

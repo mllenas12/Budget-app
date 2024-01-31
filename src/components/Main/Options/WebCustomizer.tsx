@@ -1,5 +1,7 @@
 import React from "react";
 import { CounterContext } from "../../../context/CounterProvider";
+import PopUp from "./Popup";
+
 const WebCustomizer = () => {
   const { counterPages, counterLangs, setCounterPages, setCounterLangs } =
     React.useContext(CounterContext);
@@ -19,8 +21,9 @@ const WebCustomizer = () => {
 
   return (
     <div className="w-full md:w-2/3 ml-auto">
-      <div className="flex justify-end text-end my-2">
-        <p className="px-2 my-auto font-bold text-xs">Nombre de pàgines</p>
+      <div className="flex justify-end  text-end my-2">
+        <PopUp id={"pages"} />
+        <p className="mr-1 flex font-bold text-xs my-auto">Número de pàgines</p>
         <div className="flex">
           <button onClick={() => decrementPages()}>
             <img src="public/minus-icon.svg" className="md:w-4 sm:w-6 w-10" />
@@ -34,7 +37,10 @@ const WebCustomizer = () => {
         </div>
       </div>
       <div className="flex justify-end  text-end my-2">
-        <p className="px-2 my-auto font-bold text-xs">Nombre de llenguatges</p>
+        <PopUp id={"langs"} />
+        <p className="mr-1 flex font-bold text-xs my-auto">
+          Número de llenguatges
+        </p>
         <div className="flex">
           <button onClick={() => decrementLangs()}>
             <img src="public/minus-icon.svg" className="md:w-4 sm:w-6 w-10" />

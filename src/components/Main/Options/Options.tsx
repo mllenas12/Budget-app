@@ -34,17 +34,18 @@ const Options: React.FC<OptionsProps> = ({ option }) => {
         </div>
         <div className="flex ml-auto md:ml-0  md:w-1/2 md:justify-between mt-2">
           <h2 className="md:text-3xl text-xl font-bold my-auto px-4">{`${option.price}€`}</h2>
-          <div className="my-auto">
+          <div className="flex my-auto">
             <input
               type="checkbox"
               name="isAdded"
               checked={option.isAdded}
               id={option.id}
               onChange={() => handleCheckboxChange(option.id)}
+              className="rounded my-auto border-emerald-600 checked:bg-emerald-600 checked:text-white"
             ></input>
             <label
               htmlFor={option.id}
-              className="my-auto pl-2 text-sm md:text-lg lg:text-xl"
+              className="pl-2 text-sm md:text-lg lg:text-xl"
             >
               Afegir
             </label>

@@ -14,3 +14,7 @@ export interface OptionsProps {
 export type CounterProviderProps = {
   children: React.ReactNode;
 };
+
+export type PopUpProps = {
+  id: string;
+};
