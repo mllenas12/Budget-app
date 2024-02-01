@@ -4,7 +4,7 @@ import { BudgetCompletedProps } from "../../../types/budgetTypes";
 
 const BudgetCompleted = ({ currentBudget }: BudgetCompletedProps) => {
   return (
-    <div className="rounded-xl shadow-xl w-4/4 mx-auto my-5 p-5 border-solid border-2 border-gray-50 md:flex md:justify-between">
+    <div className="rounded-xl shadow-lg w-4/4 mx-auto my-5 p-5 border-solid border-2 border-gray-50 md:flex md:justify-between">
       <div className="w-full md:w-1/4">
         <h2 className="font-bold text-lg">{currentBudget.name}</h2>
         <p className="text-xs mt-1 font-semibold text-gray-400">

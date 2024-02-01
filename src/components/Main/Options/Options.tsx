@@ -2,16 +2,16 @@ import React from "react";
 import { CounterContext } from "../../../context/CounterProvider";
 import { optionType, OptionsProps } from "../../../types/counterTypes";
 import WebCustomizer from "./WebCustomizer";
-const Options: React.FC<OptionsProps> = ({ option }) => {
-  const { setDataOptions } = React.useContext(CounterContext);
 
+const Options: React.FC<OptionsProps> = ({ option }) => {
+  const { setDataOptions, yearPayment } = React.useContext(CounterContext);
+
+  // Update dataOptions basedon changes in checkbox inputs
   const handleCheckboxChange = (id: number) => {
     setDataOptions((prevData: optionType[]) => {
-      return prevData.map((option) => {
-        return option.id == id
-          ? { ...option, isAdded: !option.isAdded }
-          : option;
-      });
+      return prevData.map((option) =>
+        option.id === id ? { ...option, isAdded: !option.isAdded } : option
+      );
     });
   };
 
@@ -33,7 +33,17 @@ const Options: React.FC<OptionsProps> = ({ option }) => {
           </p>
         </div>
         <div className="flex ml-auto md:ml-0  md:w-1/2 md:justify-between mt-2">
-          <h2 className="md:text-3xl text-xl font-bold my-auto px-4">{`${option.price}€`}</h2>
+          <div className="my-auto px-4 ">
+            {yearPayment && (
+              <h3 className="text-xs font-semibold text-orange-400 pb-3">
+                Estalvia un 20%
+              </h3>
+            )}
+            <h2 className="md:text-3xl text-xl font-bold text-center">{`${
+              yearPayment ? option.price - option.price * 0.2 : option.price
+            }€`}</h2>
+          </div>
+
           <div className="flex my-auto">
             <input
               type="checkbox"
@@ -41,7 +51,7 @@ const Options: React.FC<OptionsProps> = ({ option }) => {
               checked={option.isAdded}
               id={option.id}
               onChange={() => handleCheckboxChange(option.id)}
-              className="rounded my-auto border-emerald-600 checked:bg-emerald-600 checked:text-white"
+              className="checkbox  my-auto checkbox-xs rounded border-emerald-600 checked:bg-emerald-600 [--chkbg:theme(colors.emerald.600)] [--chkfg:white]"
             ></input>
             <label
               htmlFor={option.id}

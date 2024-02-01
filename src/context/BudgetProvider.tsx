@@ -1,6 +1,5 @@
 import React, { createContext } from "react";
 import { CounterContext } from "./CounterProvider";
-export const BudgetContext = createContext<any>("");
 import {
   BudgetProviderProps,
   budgetType,
@@ -8,11 +7,11 @@ import {
 } from "../types/budgetTypes";
 import { optionType } from "../types/counterTypes";
 import dataCheckboxes from "../data/dataCheckboxes.json";
+export const BudgetContext = createContext<any>("");
 
 const BudgetProvider = ({ children }: BudgetProviderProps) => {
   const { total, dataOptions, setDataOptions, counterPages, counterLangs } =
     React.useContext(CounterContext);
-
   const [budget, setBudget] = React.useState<budgetType>({
     name: "",
     phone: "",
@@ -21,10 +20,10 @@ const BudgetProvider = ({ children }: BudgetProviderProps) => {
     services: [],
     createdAt: Date.now(),
   });
-
   const [arrayOfBudgets, setArrayOfBudgets] = React.useState<budgetType[]>([]);
   const [services, setServices] = React.useState<servicesType>([]);
 
+  // Reset form inputs to start a new form with blank inputs
   const resetForm = () => {
     setBudget({
       name: "",
@@ -37,6 +36,7 @@ const BudgetProvider = ({ children }: BudgetProviderProps) => {
     setDataOptions(dataCheckboxes);
   };
 
+  // Update budget and services information when the are changings in the form
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setServices(() => {
@@ -65,6 +65,7 @@ const BudgetProvider = ({ children }: BudgetProviderProps) => {
     });
   };
 
+  // Handle form submission
   const handleForm = (event: React.SyntheticEvent) => {
     event.preventDefault();
     setArrayOfBudgets((prevArr) => [...prevArr, { ...budget }]);

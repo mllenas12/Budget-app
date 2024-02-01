@@ -13,6 +13,7 @@ const BudgetInProgress = () => {
   const [isSearchActive, setIsSearchActive] = React.useState(false);
   const [query, setQuery] = React.useState("");
 
+  // Sorting the budgets by date of creation
   const sortByDate = () => {
     setArrayOfBudgets((prevArr: budgetType[]) =>
       isOrderedByDate
@@ -22,6 +23,7 @@ const BudgetInProgress = () => {
     setIsOrderedByDate((prev) => !prev);
   };
 
+  //Sorting the budgets by total amount
   const sortByTotal = () => {
     setArrayOfBudgets((prevArr: budgetType[]) =>
       isOrderedByTotal
@@ -31,6 +33,7 @@ const BudgetInProgress = () => {
     setIsOrderedByTotal((prev) => !prev);
   };
 
+  // Sorting the budgets by alphabetical order of name.
   const sortByName = () => {
     setArrayOfBudgets((prevArr: budgetType[]) =>
       isOrderedByName
@@ -39,10 +42,13 @@ const BudgetInProgress = () => {
     );
     setIsOrderedByName((prev) => !prev);
   };
+
+  // Toggle the state of the search bar
   const activeSearch = () => {
     setIsSearchActive((prev) => !prev);
   };
 
+  // Create a new BudgetCompleted component for every Budget added to display it with all the information introduced
   const budgetCompleted = arrayOfBudgets
     .filter((budget: budgetType) =>
       isSearchActive

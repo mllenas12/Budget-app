@@ -2,6 +2,7 @@ import React from "react";
 import { PopUpProps } from "../../../types/counterTypes";
 
 const PopUp: React.FC<PopUpProps> = ({ id }) => {
+  // Open the PopUp modal when clicking question mark icon
   const handlePopUpClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {

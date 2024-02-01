@@ -47,7 +47,7 @@ const BudgetRequest = () => {
           type="submit"
           className="btn text-white bg-emerald-500 px-2 lg:w-1/4 lg:my-auto"
         >
-          Sol·licitar pressupost →
+          Sol·licitar pressupost
         </button>
       </form>
     </div>

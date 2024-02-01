@@ -11,23 +11,36 @@ const CounterProvider = ({ children }: CounterProviderProps) => {
   const [total, setTotal] = React.useState<number>();
   const [counterPages, setCounterPages] = React.useState<number>(0);
   const [counterLangs, setCounterLangs] = React.useState<number>(0);
+  const [yearPayment, setYearPayment] = React.useState(false);
 
+  // Update total based on added options and services, applying discounts for annual payment method
   const updateTotal = () => {
     setTotal(() => {
       const totalServices = dataOptions
         .filter((option: optionType) => option.isAdded)
-        .reduce((ac: number, option: optionType) => ac + option.price, 0);
-
-      const webOption = dataOptions.find((option) => option.title == "Web");
-      let priceCustomizedServices = 0;
-      webOption?.isAdded
-        ? (priceCustomizedServices = (counterPages + counterLangs) * 30)
+        .reduce((ac: number, option: optionType) => {
+          const price = yearPayment ? option.price * 0.8 : option.price;
+          return ac + price;
+        }, 0);
+      const customizedWeb = dataOptions.find(
+        (option) => option.title === "Web"
+      );
+      const priceCustomizedServices = (counterPages + counterLangs) * 30;
+      const totalCustomizeServices = customizedWeb?.isAdded
+        ? yearPayment
+          ? priceCustomizedServices * 0.8
+          : priceCustomizedServices
         : 0;
-
-      return totalServices + priceCustomizedServices;
+      return totalServices + totalCustomizeServices;
     });
   };
-  React.useEffect(updateTotal, [dataOptions, counterPages, counterLangs]);
+
+  React.useEffect(updateTotal, [
+    dataOptions,
+    counterPages,
+    counterLangs,
+    yearPayment,
+  ]);
 
   return (
     <CounterContext.Provider
@@ -39,6 +52,8 @@ const CounterProvider = ({ children }: CounterProviderProps) => {
         counterPages,
         setCounterPages,
         setCounterLangs,
+        yearPayment,
+        setYearPayment,
       }}
     >
       {children}
